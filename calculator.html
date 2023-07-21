@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Calculator </title>
+</head>
+<body>
+    <div class="Calculator" >
+        <input class="display" value="0" >
+        <table>
+            <tr>
+                <th>+</th>
+                <td onclick="send('1')">1</td>
+                <td onclick="send('2')">2</td>
+                <td onclick="send('3')">3</td>
+                <td onclick="send('4')">4</td>
+            </tr>
+            <tr>
+                <th onclick="send('-')">-</th>
+                <td onclick="send('5')">5</td>
+                <td onclick="send('6')">6</td>
+                <td onclick="send('7')">7</td>
+                <td onclick="send('8')">8</td>
+            </tr>
+            <tr>
+                <th onclick="send('*')">*</th>
+                <td onclick="send('9')">9</td>
+                <td onclick="send('0')">0</td>
+            </tr>
+            <tr>
+                <th>/</th>
+                <td onclick="clr()">clr</td>
+                <td onclick="calculate()">=</td>
+            </tr>
+        </table>
+    </div>  
+</body>
+</html>
+
+
+
+<style>
+.Calculator{
+   
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(255, 255, 255);
+    width: 200px;
+    height: 400px;
+    
+}
+.display{
+    width: 100%;
+    height: 50px;
+    background-color: rgb(231, 231, 231);
+    color: rgb(0, 0, 0);
+}
+</style>
+
+<script>
+
+function send(val)
+{
+    const disp  = document.getElementsByClassName("display")[0];
+    disp.value += val;
+}
+
+function calculate()
+{
+    const disp=document.getElementsByClassName('display')[0];
+    let exp=disp.value;
+    let ans=eval(exp);
+    disp.value=ans;  
+}
+function clr()
+{
+    console.log('clear');
+    const disp=document.getElementsByClassName('display')[0];
+    disp.value='0';
+}
+
+</script>
